@@ -1,0 +1,15 @@
+function quickSort(arr) {
+    if (arr.length <= 1) return arr;
+
+    const pivot = arr[Math.floor(arr.length/2)];
+    const lower = arr.filter(val => val < pivot);
+    const equal = arr.filter(val => val === pivot);
+    const higher = arr.filter(val => val > pivot);
+
+    return [...quickSort(lower), ...quickSort(equal), ...quickSort(higher)];
+}
+
+
+const test = [6,2,5,3,4,1,9,7,0,8];
+
+console.log(quickSort(test));
