@@ -1,0 +1,27 @@
+function binarySearch (search, arr) {
+    let lower = 0;
+    let upper = arr.length;
+
+    while (lower < upper) {
+        let mid = lower + Math.floor((upper - lower) / 2);
+
+        if (arr[mid] === search) {
+            return mid;
+        } else if (arr[mid] < search) {
+            lower = mid + 1;
+        } else {
+            upper = mid; 
+        }
+    }
+
+    return -1;
+}
+
+
+const test = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+
+for (let i=0; i<=test.length; i++) {
+    let foundIndex = binarySearch(i, test);
+    console.log(`test ${i} :: ${foundIndex}`);
+}
